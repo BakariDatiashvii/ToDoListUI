@@ -1,0 +1,23 @@
+<div class="p-8 mt-4">
+    <div class="shadow p-6">
+  <form #form="ngForm" class="example-form">
+    <div class="axali">ახალი დავალების დამატება</div>
+    <mat-form-field class="damateba">
+      <mat-label for="nameInput">შეიყვანეთ დასახელება</mat-label>
+      <input matInput type="text" id="name" name="" [(ngModel)]="taskModel.name" [ngModelOptions]="{standalone: true}" required>
+    </mat-form-field>
+    <mat-form-field class="seleqti">
+      <mat-label>აირჩიეთ დავალების სტატუსი</mat-label>
+  
+      <mat-select  name="statusToString" [(ngModel)]="taskModel.status" [ngModelOptions]="{standalone: true}" required>
+        <mat-option *ngFor="let item of statuses" [value]="item.id">{{item.value}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" (click)="save()" type="submit">{{isEditMode ? "განახლება" : "დამატება"}}</button>
+  </form>
+    </div>
+  </div>
+    
+  
+  
